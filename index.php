@@ -1,19 +1,18 @@
 <?php
 
-try{
-    $conexao = new \PDO("mysql:host=127.0.0.1;dbname=php_pdo","root","");
+require_once "Cliente.php";
+require_once "conexao.php";
 
-    $query = "SELECT * FROM alunos";
+$cliente = new Cliente($conexao);
 
-    $stmt = $conexao->query($query);
-    $resultado = $stmt->fetchAll(PDO::FETCH_CLASS);
+$cliente->setNome("Aline")
+        ->setEmail("aline@gmail.com");
 
-    foreach($resultado as $aluno){
-        echo $aluno->nome."<br>";
-    }
+$resultado = $cliente->inserir();
 
-    //print_r($resultado);
+//echo $resultado;
+
+foreach($cliente->listar() as $c){
+    echo $c['nome']."<br>";
 }
-catch(\PDOException $e){
-    echo "Não possível estabelecer a conexão com o banco de dados. Erro código: ".$e->getCode().": ".$e->getMessage();
-}
+
