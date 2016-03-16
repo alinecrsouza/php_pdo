@@ -20,7 +20,7 @@ $resultado = $stmt->fetchAll(PDO::FETCH_CLASS);
     <body>
         <header>
             <h1>Três maiores notas</h1><br><br>
-            <a href="index_exemplo_pdo.php">Voltar</a>
+            <a href="index_exemplo_alunos.php">Voltar</a>
         </header>
         <main>
             <table>

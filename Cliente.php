@@ -18,6 +18,17 @@ class Cliente
         $this->db = $db;
     }
 
+    public function find($id)
+    {
+        $query = "Select * from clientes Where id=:id";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        return $stmt->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function listar()
     {
         $query = "Select * from clientes order by nome";
