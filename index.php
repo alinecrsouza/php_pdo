@@ -1,6 +1,7 @@
 <?php
 
 require_once "Cliente.php";
+require_once "EntityInterface.php";
 require_once "ServiceDb.php";
 require_once "conexao.php";
 
